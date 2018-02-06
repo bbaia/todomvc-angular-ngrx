@@ -1,0 +1,29 @@
+<footer id="footer"
+  class="footer">
+  <span id="todo-count"
+    class="todo-count">{{ undoneTodosCount }} items left</span>
+  <ul id="filters"
+    class="filters">
+    <li>
+      <a [class.selected]="currentFilter === 'SHOW_ALL'"
+        (click)="filter.emit('SHOW_ALL')">
+        All
+      </a>
+    </li>
+    <li>
+      <a [class.selected]="currentFilter === 'SHOW_ACTIVE'"
+        (click)="filter.emit('SHOW_ACTIVE')">
+        Active
+      </a>
+    </li>
+    <li>
+      <a [class.selected]="currentFilter === 'SHOW_COMPLETED'"
+        (click)="filter.emit('SHOW_COMPLETED')">
+        Completed
+      </a>
+    </li>
+  </ul>
+  <button id="clear-completed"
+    class="clear-completed"
+    (click)="clearCompleted.emit()">Clear completed</button>
+</footer>

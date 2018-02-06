@@ -1,0 +1,7 @@
+<input id="new-todo"
+  class="new-todo"
+  type="text"
+  autofocus
+  placeholder="What needs to be done?"
+  [formControl]="textField"
+  (keyup.enter)="newTodo()" />

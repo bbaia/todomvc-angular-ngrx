@@ -1,0 +1,40 @@
+{
+  "name": "gdgtoulouse-ngrx",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "5.2.3",
+    "@angular/common": "5.2.3",
+    "@angular/compiler": "5.2.3",
+    "@angular/core": "5.2.3",
+    "@angular/forms": "5.2.3",
+    "@angular/http": "5.2.3",
+    "@angular/platform-browser": "5.2.3",
+    "@angular/platform-browser-dynamic": "5.2.3",
+    "@angular/router": "5.2.3",
+    "@ngrx/store": "5.0.0",
+    "@ngrx/store-devtools": "5.0.1",
+    "core-js": "2.5.3",
+    "ngrx-store-freeze": "0.2.1",
+    "rxjs": "5.5.6",
+    "todomvc-app-css": "2.1.0",
+    "todomvc-common": "1.0.4",
+    "zone.js": "0.8.20"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.7.0-beta.3",
+    "@angular/compiler-cli": "5.2.3",
+    "@angular/language-service": "5.2.3",
+    "codelyzer": "4.1.0",
+    "prettier": "1.10.2",
+    "typescript": "2.6.2",
+    "tslint": "5.9.1"
+  }
+}
