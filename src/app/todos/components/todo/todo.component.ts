@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
@@ -9,7 +9,7 @@ import * as fromTodos from '../../store';
   selector: 'app-todo',
   templateUrl: './todo.component.html',
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
   hasTodos$: Observable<boolean>;
   undoneTodosCount$: Observable<number>;
   currentFilter$: Observable<TodoFilter>;
@@ -20,6 +20,10 @@ export class TodoComponent {
     this.undoneTodosCount$ = this.store.select(fromTodos.getUndoneTodosCount);
     this.currentFilter$ = this.store.select(fromTodos.getFilter);
     this.filteredTodos$ = this.store.select(fromTodos.getFilteredTodos);
+  }
+
+  ngOnInit() {
+    this.store.dispatch(new fromTodos.LoadAction());
   }
 
   onAddTodo(text: string) {

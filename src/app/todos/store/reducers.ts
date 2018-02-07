@@ -30,6 +30,13 @@ export function reducer(
       };
     }
 
+    case fromTodos.LOAD_TODOS_COMPLETED: {
+      return {
+        ...state,
+        todos: action.todos,
+      };
+    }
+
     case fromTodos.TOGGLE_TODO: {
       return {
         ...state,

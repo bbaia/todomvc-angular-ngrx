@@ -3,10 +3,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../environments/environment';
 import * as fromApp from './store';
+import { TodosEffects } from './todos/store/effects';
 import { AppComponent } from './app.component';
 import {
   TodoComponent,
@@ -37,6 +39,7 @@ const routes: Routes = [
     StoreModule.forRoot(fromApp.reducers, {
       metaReducers: fromApp.metaReducers,
     }),
+    EffectsModule.forRoot([TodosEffects]),
     !environment.production
       ? StoreDevtoolsModule.instrument({ maxAge: 50 })
       : [],
