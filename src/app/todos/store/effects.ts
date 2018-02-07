@@ -18,6 +18,7 @@ export class TodosEffects {
           {
             id: 0.123456789,
             text: 'Remove before flight!',
+            creationDate: new Date(2018, 1, 6),
             completed: false,
           },
         ]),

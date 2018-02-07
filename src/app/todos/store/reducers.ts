@@ -1,14 +1,15 @@
 import { Todo, TodoFilter } from '../models';
 import * as fromTodos from './actions';
+import * as todoEntity from './entities/todo';
 
 export interface State {
-  todos: Todo[];
+  todos: todoEntity.State;
   filter: TodoFilter;
   loading: boolean;
 }
 
 const initialState: State = {
-  todos: [],
+  todos: todoEntity.initialState,
   filter: 'SHOW_ALL',
   loading: false,
 };
@@ -21,14 +22,15 @@ export function reducer(
     case fromTodos.ADD_TODO: {
       return {
         ...state,
-        todos: [
-          ...state.todos,
+        todos: todoEntity.adapter.addOne(
           {
             id: action.id,
             text: action.text,
+            creationDate: new Date(),
             completed: false,
           },
-        ],
+          state.todos,
+        ),
       };
     }
 
@@ -42,7 +44,7 @@ export function reducer(
     case fromTodos.LOAD_TODOS_COMPLETED: {
       return {
         ...state,
-        todos: action.todos,
+        todos: todoEntity.adapter.addAll(action.todos, state.todos),
         loading: false,
       };
     }
@@ -50,46 +52,40 @@ export function reducer(
     case fromTodos.TOGGLE_TODO: {
       return {
         ...state,
-        todos: state.todos.map(todo => {
-          if (action.id === todo.id) {
-            return {
-              ...todo,
-              completed: !todo.completed,
-            };
-          } else {
-            return todo;
-          }
-        }),
+        todos: todoEntity.adapter.updateOne(
+          {
+            id: action.id,
+            changes: { completed: !state.todos.entities[action.id].completed },
+          },
+          state.todos,
+        ),
       };
     }
 
     case fromTodos.DELETE_TODO: {
       return {
         ...state,
-        todos: state.todos.filter(todo => action.id !== todo.id),
+        todos: todoEntity.adapter.removeOne(action.id, state.todos),
       };
     }
 
     case fromTodos.UPDATE_TODO: {
       return {
         ...state,
-        todos: state.todos.map(todo => {
-          if (action.id === todo.id) {
-            return {
-              ...todo,
-              text: action.text,
-            };
-          } else {
-            return todo;
-          }
-        }),
+        todos: todoEntity.adapter.updateOne(
+          { id: action.id, changes: { text: action.text } },
+          state.todos,
+        ),
       };
     }
 
     case fromTodos.CLEAR_COMPLETED_TODO: {
       return {
         ...state,
-        todos: state.todos.filter(todo => !todo.completed),
+        todos: todoEntity.adapter.removeMany(
+          state.todos.ids.filter(id => state.todos.entities[id].completed),
+          state.todos,
+        ),
       };
     }
 

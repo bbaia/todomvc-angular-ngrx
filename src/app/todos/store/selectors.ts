@@ -1,6 +1,7 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
 import * as fromTodos from './reducers';
+import * as todoEntity from './entities/todo';
 import { Todo } from '../models';
 
 export const getTodoState = createFeatureSelector<fromTodos.State>('todos');
@@ -9,6 +10,14 @@ export const getTodoState = createFeatureSelector<fromTodos.State>('todos');
 
 export const getFilter = createSelector(getTodoState, state => state.filter);
 
+export const {
+  selectIds: getTodoIds,
+  selectEntities: getTodoEntities,
+  selectAll: getAllTodos,
+  selectTotal: getTotalTodos,
+} = todoEntity.adapter.getSelectors(
+  createSelector(getTodoState, state => state.todos),
+);
 export const getTodos = createSelector(getTodoState, state => state.todos);
 
 export const getLoading = createSelector(getTodoState, state => state.loading);
@@ -16,7 +25,7 @@ export const getLoading = createSelector(getTodoState, state => state.loading);
 // Calculated selectors
 
 export const getFilteredTodos = createSelector(
-  getTodos,
+  getAllTodos,
   getFilter,
   (todos, filter) => {
     switch (filter) {
@@ -31,10 +40,10 @@ export const getFilteredTodos = createSelector(
   },
 );
 
-export const getHasTodos = createSelector(getTodos, todos => {
-  return todos.length > 0;
+export const getHasTodos = createSelector(getTotalTodos, totalTodos => {
+  return totalTodos > 0;
 });
 
-export const getUndoneTodosCount = createSelector(getTodos, todos => {
+export const getUndoneTodosCount = createSelector(getAllTodos, todos => {
   return todos.filter(t => !t.completed).length;
 });
