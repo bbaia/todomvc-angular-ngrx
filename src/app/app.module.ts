@@ -23,8 +23,8 @@ import {
 } from './todos/components';
 
 const routes: Routes = [
-  { path: '', component: TodoComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: ':filter', component: TodoComponent },
+  { path: '**', redirectTo: 'all', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -4,13 +4,11 @@ import * as todoEntity from './entities/todo';
 
 export interface State {
   todos: todoEntity.State;
-  filter: TodoFilter;
   loading: boolean;
 }
 
 const initialState: State = {
   todos: todoEntity.initialState,
-  filter: 'SHOW_ALL',
   loading: false,
 };
 
@@ -86,13 +84,6 @@ export function reducer(
           state.todos.ids.filter(id => state.todos.entities[id].completed),
           state.todos,
         ),
-      };
-    }
-
-    case fromTodos.SET_TODO_FILTER: {
-      return {
-        ...state,
-        filter: action.filter,
       };
     }
 
