@@ -11,6 +11,8 @@ export const getFilter = createSelector(getTodoState, state => state.filter);
 
 export const getTodos = createSelector(getTodoState, state => state.todos);
 
+export const getLoading = createSelector(getTodoState, state => state.loading);
+
 // Calculated selectors
 
 export const getFilteredTodos = createSelector(

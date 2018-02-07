@@ -14,12 +14,14 @@ export class TodoComponent implements OnInit {
   undoneTodosCount$: Observable<number>;
   currentFilter$: Observable<TodoFilter>;
   filteredTodos$: Observable<Todo[]>;
+  loading$: Observable<boolean>;
 
   constructor(private store: Store<fromTodos.State>) {
     this.hasTodos$ = this.store.select(fromTodos.getHasTodos);
     this.undoneTodosCount$ = this.store.select(fromTodos.getUndoneTodosCount);
     this.currentFilter$ = this.store.select(fromTodos.getFilter);
     this.filteredTodos$ = this.store.select(fromTodos.getFilteredTodos);
+    this.loading$ = this.store.select(fromTodos.getLoading);
   }
 
   ngOnInit() {

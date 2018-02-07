@@ -4,11 +4,13 @@ import * as fromTodos from './actions';
 export interface State {
   todos: Todo[];
   filter: TodoFilter;
+  loading: boolean;
 }
 
 const initialState: State = {
   todos: [],
   filter: 'SHOW_ALL',
+  loading: false,
 };
 
 export function reducer(
@@ -30,10 +32,18 @@ export function reducer(
       };
     }
 
+    case fromTodos.LOAD_TODOS: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
     case fromTodos.LOAD_TODOS_COMPLETED: {
       return {
         ...state,
         todos: action.todos,
+        loading: false,
       };
     }
 
