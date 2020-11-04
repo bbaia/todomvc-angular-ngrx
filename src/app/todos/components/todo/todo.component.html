@@ -1,6 +1,6 @@
 <header class="header">
   <h1>todos</h1>
-  <app-new-todo *ngIf="!(loading$ | async); else loading"
+  <app-new-todo *ngIf="(loading$ | async) === false; else loading"
     (addTodo)="onAddTodo($event)"></app-new-todo>
 </header>
 <app-todo-list [todos]="filteredTodos$ | async"

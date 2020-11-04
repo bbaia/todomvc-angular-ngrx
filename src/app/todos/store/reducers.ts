@@ -1,14 +1,13 @@
-import { Todo, TodoFilter } from '../models';
 import * as fromTodos from './actions';
 import * as todoEntity from './entities/todo';
 
 export interface State {
-  todos: todoEntity.State;
+  data: todoEntity.State;
   loading: boolean;
 }
 
 const initialState: State = {
-  todos: todoEntity.initialState,
+  data: todoEntity.initialState,
   loading: false,
 };
 
@@ -20,14 +19,14 @@ export function reducer(
     case fromTodos.ADD_TODO: {
       return {
         ...state,
-        todos: todoEntity.adapter.addOne(
+        data: todoEntity.adapter.addOne(
           {
             id: action.id,
             text: action.text,
             creationDate: new Date(),
             completed: false,
           },
-          state.todos,
+          state.data,
         ),
       };
     }
@@ -42,7 +41,7 @@ export function reducer(
     case fromTodos.LOAD_TODOS_COMPLETED: {
       return {
         ...state,
-        todos: todoEntity.adapter.addAll(action.todos, state.todos),
+        data: todoEntity.adapter.setAll(action.todos, state.data),
         loading: false,
       };
     }
@@ -50,12 +49,14 @@ export function reducer(
     case fromTodos.TOGGLE_TODO: {
       return {
         ...state,
-        todos: todoEntity.adapter.updateOne(
+        data: todoEntity.adapter.updateOne(
           {
             id: action.id,
-            changes: { completed: !state.todos.entities[action.id].completed },
+            changes: {
+              completed: !state.data.entities[action.id].completed,
+            },
           },
-          state.todos,
+          state.data,
         ),
       };
     }
@@ -63,16 +64,16 @@ export function reducer(
     case fromTodos.DELETE_TODO: {
       return {
         ...state,
-        todos: todoEntity.adapter.removeOne(action.id, state.todos),
+        data: todoEntity.adapter.removeOne(action.id, state.data),
       };
     }
 
     case fromTodos.UPDATE_TODO: {
       return {
         ...state,
-        todos: todoEntity.adapter.updateOne(
+        data: todoEntity.adapter.updateOne(
           { id: action.id, changes: { text: action.text } },
-          state.todos,
+          state.data,
         ),
       };
     }
@@ -80,9 +81,9 @@ export function reducer(
     case fromTodos.CLEAR_COMPLETED_TODO: {
       return {
         ...state,
-        todos: todoEntity.adapter.removeMany(
-          state.todos.ids.filter(id => state.todos.entities[id].completed),
-          state.todos,
+        data: todoEntity.adapter.removeMany(
+          state.data.ids.filter(id => state.data.entities[id].completed),
+          state.data,
         ),
       };
     }

@@ -14,7 +14,7 @@ export class NewTodoComponent {
     this.textField = new FormControl('', [Validators.required]);
   }
 
-  newTodo() {
+  newTodo(): void {
     if (this.textField.valid) {
       const text = this.textField.value as string;
       this.addTodo.emit(text.trim());

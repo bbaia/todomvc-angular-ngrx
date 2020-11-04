@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 import { Todo } from './../../models';
@@ -9,9 +9,9 @@ import { Todo } from './../../models';
 })
 export class TodoListItemComponent implements OnInit {
   @Input() todo: Todo;
-  @Output() toggle = new EventEmitter<string>();
+  @Output() toggle = new EventEmitter<number>();
   @Output() update = new EventEmitter<{ id: number; text: string }>();
-  @Output() delete = new EventEmitter<string>();
+  @Output() delete = new EventEmitter<number>();
 
   textField: FormControl;
   checkField: FormControl;
@@ -24,12 +24,12 @@ export class TodoListItemComponent implements OnInit {
     this.checkField = new FormControl(false);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.textField.setValue(this.todo.text);
     this.checkField.setValue(this.todo.completed, { emitEvent: false });
   }
 
-  updateText() {
+  updateText(): void {
     if (this.textField.valid && this.editing) {
       const text = this.textField.value as string;
       this.update.emit({ id: this.todo.id, text: text.trim() });
@@ -37,7 +37,7 @@ export class TodoListItemComponent implements OnInit {
     }
   }
 
-  activeEditMode() {
+  activeEditMode(): void {
     this.editing = true;
   }
 }

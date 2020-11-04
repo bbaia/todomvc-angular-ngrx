@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { Todo, TodoFilter } from '../../models';
 import * as fromTodos from '../../store';
@@ -24,31 +24,31 @@ export class TodoComponent implements OnInit {
     this.loading$ = this.store.select(fromTodos.getLoading);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.store.dispatch(new fromTodos.LoadAction());
   }
 
-  onAddTodo(text: string) {
+  onAddTodo(text: string): void {
     this.store.dispatch(new fromTodos.AddAction(text));
   }
 
-  onToggle(id: number) {
+  onToggle(id: number): void {
     this.store.dispatch(new fromTodos.ToggleAction(id));
   }
 
-  onUpdate(event: { id: number; text: string }) {
+  onUpdate(event: { id: number; text: string }): void {
     this.store.dispatch(new fromTodos.UpdateAction(event.id, event.text));
   }
 
-  onDelete(id: number) {
+  onDelete(id: number): void {
     this.store.dispatch(new fromTodos.DeleteAction(id));
   }
 
-  onFilter(filter: TodoFilter) {
+  onFilter(filter: TodoFilter): void {
     this.store.dispatch(new fromTodos.SetFilterAction(filter));
   }
 
-  onClearCompleted() {
+  onClearCompleted(): void {
     this.store.dispatch(new fromTodos.ClearCompletedAction());
   }
 }

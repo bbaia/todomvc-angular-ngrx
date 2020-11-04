@@ -1,6 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-
-import './rxjs-extensions';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,9 +9,7 @@ import './rxjs-extensions';
     </section>
     <footer class="info">
       <p>Double-click to edit a todo</p>
-      <p>Part of
-        <a href="http://todomvc.com">TodoMVC</a>
-      </p>
+      <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
     </footer>
   `,
 })

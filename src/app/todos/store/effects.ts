@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of as observableOf } from 'rxjs';
+import { delay, switchMap, tap } from 'rxjs/operators';
 
-import { Todo } from '../models';
 import * as fromTodos from '../store';
 
 @Injectable()
 export class TodosEffects {
   @Effect()
-  loadTodos$: Observable<Action> = this.actions$
-    .ofType(fromTodos.LOAD_TODOS)
-    .switchMap(action =>
+  loadTodos$: Observable<Action> = this.actions$.pipe(
+    ofType(fromTodos.LOAD_TODOS),
+    switchMap(action =>
       // Simulate network call
-      Observable.of(
+      observableOf(
         new fromTodos.LoadCompletedAction([
           {
             id: 0.123456789,
@@ -23,13 +23,14 @@ export class TodosEffects {
             completed: false,
           },
         ]),
-      ).delay(1000),
-    );
+      ).pipe(delay(1000)),
+    ),
+  );
 
   @Effect({ dispatch: false })
-  filter$: Observable<Action> = this.actions$
-    .ofType(fromTodos.SET_TODO_FILTER)
-    .do((action: fromTodos.SetFilterAction) => {
+  filter$: Observable<Action> = this.actions$.pipe(
+    ofType(fromTodos.SET_TODO_FILTER),
+    tap((action: fromTodos.SetFilterAction) => {
       switch (action.filter) {
         case 'SHOW_ACTIVE': {
           this.router.navigate(['/', 'active']);
@@ -44,7 +45,8 @@ export class TodosEffects {
           break;
         }
       }
-    });
+    }),
+  );
 
   constructor(
     private actions$: Actions,

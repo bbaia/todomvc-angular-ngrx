@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Todo } from '../../models';
 
@@ -12,7 +12,7 @@ export class TodoListComponent {
   @Output() update = new EventEmitter<{ id: number; text: string }>();
   @Output() delete = new EventEmitter<string>();
 
-  todosTrackByFn(index, item: Todo) {
+  todosTrackByFn(index, item: Todo): number {
     return item.id;
   }
 }

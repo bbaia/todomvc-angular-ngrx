@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Params, RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 
@@ -11,11 +12,11 @@ import { RouterStateSerializer } from '@ngrx/router-store';
 
 export interface CustomRouterState {
   url: string;
-  path: string;
   params: Params;
   queryParams: Params;
 }
 
+@Injectable()
 export class CustomRouterStateSerializer
   implements RouterStateSerializer<CustomRouterState> {
   serialize(routerState: RouterStateSnapshot): CustomRouterState {
@@ -24,13 +25,14 @@ export class CustomRouterStateSerializer
       route = route.firstChild;
     }
 
-    const { url } = routerState;
-    const path = route.url.length
-      ? route.url[0].path
-      : route.parent && route.parent.url.length ? route.parent.url[0].path : '';
-    const queryParams = routerState.root.queryParams;
-    const params = route.params;
+    const {
+      url,
+      root: { queryParams },
+    } = routerState;
+    const { params } = route;
 
-    return { url, path, params, queryParams };
+    // Only return an object including the URL, params and query params
+    // instead of the entire snapshot
+    return { url, params, queryParams };
   }
 }

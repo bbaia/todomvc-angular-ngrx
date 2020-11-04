@@ -1,9 +1,10 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import * as fromApp from '../../store';
-import * as fromTodos from './reducers';
+import { TodoFilter } from '../models';
+
 import * as todoEntity from './entities/todo';
-import { Todo, TodoFilter } from '../models';
+import * as fromTodos from './reducers';
 
 export const getTodoState = createFeatureSelector<fromTodos.State>('todos');
 
@@ -15,18 +16,17 @@ export const {
   selectAll: getAllTodos,
   selectTotal: getTotalTodos,
 } = todoEntity.adapter.getSelectors(
-  createSelector(getTodoState, state => state.todos),
+  createSelector(getTodoState, state => state.data),
 );
-export const getTodos = createSelector(getTodoState, state => state.todos);
 
 export const getLoading = createSelector(getTodoState, state => state.loading);
 
 // Calculated selectors
 
 export const getFilter = createSelector(
-  fromApp.getRouterState,
-  (routerState): TodoFilter => {
-    switch (routerState.params.filter) {
+  fromApp.getRouteParamFilter,
+  (routeFilter): TodoFilter => {
+    switch (routeFilter) {
       case 'active': {
         return 'SHOW_ACTIVE';
       }
