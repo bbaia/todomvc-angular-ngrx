@@ -25,30 +25,30 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new fromTodos.LoadAction());
+    this.store.dispatch(fromTodos.loadAction());
   }
 
   onAddTodo(text: string): void {
-    this.store.dispatch(new fromTodos.AddAction(text));
+    this.store.dispatch(fromTodos.addAction(text));
   }
 
   onToggle(id: number): void {
-    this.store.dispatch(new fromTodos.ToggleAction(id));
+    this.store.dispatch(fromTodos.toggleAction({ id }));
   }
 
   onUpdate(event: { id: number; text: string }): void {
-    this.store.dispatch(new fromTodos.UpdateAction(event.id, event.text));
+    this.store.dispatch(fromTodos.updateAction(event));
   }
 
   onDelete(id: number): void {
-    this.store.dispatch(new fromTodos.DeleteAction(id));
+    this.store.dispatch(fromTodos.deleteAction({ id }));
   }
 
   onFilter(filter: TodoFilter): void {
-    this.store.dispatch(new fromTodos.SetFilterAction(filter));
+    this.store.dispatch(fromTodos.setFilterAction({ filter }));
   }
 
   onClearCompleted(): void {
-    this.store.dispatch(new fromTodos.ClearCompletedAction());
+    this.store.dispatch(fromTodos.clearCompletedAction());
   }
 }
