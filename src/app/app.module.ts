@@ -47,7 +47,7 @@ const routes: Routes = [
     EffectsModule.forRoot([TodosEffects]),
     !environment.production
       ? StoreDevtoolsModule.instrument({
-          name: 'GDG Toulouse - Redux with Angular & ngrx',
+          name: 'TodoMVC app using Angular & NgRx',
           maxAge: 50,
         })
       : [],

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gdgtoulouse-ngrx": {
+    "todomvc-angular-ngrx": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gdgtoulouse-ngrx",
+            "outputPath": "dist/todomvc-angular-ngrx",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gdgtoulouse-ngrx:build"
+            "browserTarget": "todomvc-angular-ngrx:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gdgtoulouse-ngrx:build:production"
+              "browserTarget": "todomvc-angular-ngrx:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gdgtoulouse-ngrx:build"
+            "browserTarget": "todomvc-angular-ngrx:build"
           }
         },
         "lint": {
@@ -90,5 +90,5 @@
       }
     }
   },
-  "defaultProject": "gdgtoulouse-ngrx"
+  "defaultProject": "todomvc-angular-ngrx"
 }
