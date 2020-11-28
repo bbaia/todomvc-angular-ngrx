@@ -9,6 +9,7 @@
   (delete)="onDelete($event)">
 </app-todo-list>
 <app-footer *ngIf="hasTodos$ | async"
+  [hasCompletedTodos]="hasCompletedTodos$ | async"
   [undoneTodosCount]="undoneTodosCount$ | async"
   [currentFilter]="currentFilter$ | async"
   (filter)="onFilter($event)"

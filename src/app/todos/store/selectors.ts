@@ -60,6 +60,10 @@ export const getHasTodos = createSelector(getTotalTodos, totalTodos => {
   return totalTodos > 0;
 });
 
+export const hasCompletedTodos = createSelector(getAllTodos, todos => {
+  return todos.filter(t => t.completed).length > 0;
+});
+
 export const getUndoneTodosCount = createSelector(getAllTodos, todos => {
   return todos.filter(t => !t.completed).length;
 });

@@ -24,6 +24,7 @@
     </li>
   </ul>
   <button id="clear-completed"
+    *ngIf="hasCompletedTodos"
     class="clear-completed"
     (click)="clearCompleted.emit()">
     Clear completed

@@ -11,6 +11,7 @@ import * as fromTodos from '../../store';
 })
 export class TodoComponent implements OnInit {
   hasTodos$: Observable<boolean>;
+  hasCompletedTodos$: Observable<boolean>;
   undoneTodosCount$: Observable<number>;
   currentFilter$: Observable<TodoFilter>;
   filteredTodos$: Observable<Todo[]>;
@@ -18,6 +19,7 @@ export class TodoComponent implements OnInit {
 
   constructor(private store: Store<fromTodos.State>) {
     this.hasTodos$ = this.store.select(fromTodos.getHasTodos);
+    this.hasCompletedTodos$ = this.store.select(fromTodos.hasCompletedTodos);
     this.undoneTodosCount$ = this.store.select(fromTodos.getUndoneTodosCount);
     this.currentFilter$ = this.store.select(fromTodos.getFilter);
     this.filteredTodos$ = this.store.select(fromTodos.getFilteredTodos);

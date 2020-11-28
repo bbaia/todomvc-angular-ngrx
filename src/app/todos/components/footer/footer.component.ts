@@ -7,6 +7,7 @@ import { TodoFilter } from '../../models';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
+  @Input() hasCompletedTodos: boolean;
   @Input() undoneTodosCount: number;
   @Input() currentFilter: TodoFilter;
   @Output() filter = new EventEmitter<TodoFilter>();
