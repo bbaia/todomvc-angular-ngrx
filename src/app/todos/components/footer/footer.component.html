@@ -5,19 +5,22 @@
   <ul id="filters"
     class="filters">
     <li>
-      <a [class.selected]="currentFilter === 'SHOW_ALL'"
+      <a [routerLink]=""
+        [class.selected]="currentFilter === 'SHOW_ALL'"
         (click)="filter.emit('SHOW_ALL')">
         All
       </a>
     </li>
     <li>
-      <a [class.selected]="currentFilter === 'SHOW_ACTIVE'"
+      <a [routerLink]=""
+        [class.selected]="currentFilter === 'SHOW_ACTIVE'"
         (click)="filter.emit('SHOW_ACTIVE')">
         Active
       </a>
     </li>
     <li>
-      <a [class.selected]="currentFilter === 'SHOW_COMPLETED'"
+      <a [routerLink]=""
+        [class.selected]="currentFilter === 'SHOW_COMPLETED'"
         (click)="filter.emit('SHOW_COMPLETED')">
         Completed
       </a>
