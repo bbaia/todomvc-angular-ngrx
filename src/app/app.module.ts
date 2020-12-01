@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import {
   TodoListComponent,
   TodoListItemComponent,
 } from './todos/components';
+import { TodosService } from './todos/services';
 import { TodosEffects } from './todos/store/effects';
 
 const routes: Routes = [
@@ -36,6 +38,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(fromApp.reducers, {
@@ -53,5 +56,6 @@ const routes: Routes = [
       : [],
   ],
   bootstrap: [AppComponent],
+  providers: [TodosService],
 })
 export class AppModule {}
