@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0.123456789,
+    "text": "Learn Angular",
+    "creationDate": "2020-01-01",
+    "completed": true
+  },
+  {
+    "id": 0.234567891,
+    "text": "Learn ngrx",
+    "creationDate": "2020-02-01",
+    "completed": true
+  },
+  {
+    "id": 0.345678912,
+    "text": "Learn Cypress",
+    "creationDate": "2020-03-01",
+    "completed": false
+  }
+]
