@@ -3,7 +3,8 @@
   <app-new-todo *ngIf="(loading$ | async) === false; else loading"
     (addTodo)="onAddTodo($event)"></app-new-todo>
 </header>
-<app-todo-list [todos]="filteredTodos$ | async"
+<app-todo-list *ngIf="hasTodos$ | async"
+  [todos]="filteredTodos$ | async"
   (toggle)="onToggle($event)"
   (update)="onUpdate($event)"
   (delete)="onDelete($event)">
