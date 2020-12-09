@@ -15,10 +15,10 @@ import * as fromApp from './store';
 import {
   FooterComponent,
   NewTodoComponent,
-  TodoComponent,
   TodoListComponent,
   TodoListItemComponent,
 } from './todos/components';
+import { TodoComponent } from './todos/containers';
 import { TodosService } from './todos/services';
 import { TodosEffects } from './todos/store/effects';
 
