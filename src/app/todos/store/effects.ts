@@ -46,6 +46,5 @@ export class TodosEffects {
     private actions$: Actions,
     private router: Router,
     private todosService: TodosService,
-    private todosStore: Store<fromTodos.State>,
   ) {}
 }

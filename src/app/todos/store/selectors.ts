@@ -6,17 +6,26 @@ import { TodoFilter } from '../models';
 import * as todoEntity from './entities/todo';
 import * as fromTodos from './reducers';
 
-export const getTodoState = createFeatureSelector<fromTodos.State>('todos');
+export const getTodoState = createFeatureSelector<
+  fromApp.State,
+  fromTodos.State
+>('todos');
 
 // Raw selectors
 
-export const {
-  selectIds: getTodoIds,
-  selectEntities: getTodoEntities,
-  selectAll: getAllTodos,
-  selectTotal: getTotalTodos,
-} = todoEntity.adapter.getSelectors(
-  createSelector(getTodoState, state => state.data),
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = todoEntity.adapter.getSelectors();
+
+export const getAllTodos = createSelector(getTodoState, state =>
+  selectAll(state.data),
+);
+
+export const getTotalTodos = createSelector(getTodoState, state =>
+  selectTotal(state.data),
 );
 
 export const getLoading = createSelector(getTodoState, state => state.loading);

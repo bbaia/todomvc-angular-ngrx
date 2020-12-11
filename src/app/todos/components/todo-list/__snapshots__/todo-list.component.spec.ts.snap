@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListComponent should render 1`] = `
+<app-todo-list
+  delete={[Function EventEmitter_]}
+  todos={[Function Array]}
+  toggle={[Function EventEmitter_]}
+  update={[Function EventEmitter_]}
+>
+  <section
+    class="main"
+    id="main"
+  >
+    
+    <div
+      class="toogle-view"
+    />
+    <ul
+      class="todo-list"
+      id="todo-list"
+    >
+      
+      <app-todo-list-item>
+        <li
+          class="completed"
+        >
+          <div
+            class="view"
+          >
+            <input
+              class="toggle ng-untouched ng-pristine ng-valid"
+              type="checkbox"
+            />
+            <label>
+               Learn Angular 
+            </label>
+            <button
+              class="destroy"
+            />
+          </div>
+          <input
+            class="edit ng-untouched ng-pristine ng-valid"
+            type="text"
+          />
+        </li>
+      </app-todo-list-item>
+      <app-todo-list-item>
+        <li
+          class="completed"
+        >
+          <div
+            class="view"
+          >
+            <input
+              class="toggle ng-untouched ng-pristine ng-valid"
+              type="checkbox"
+            />
+            <label>
+               Learn NgRx 
+            </label>
+            <button
+              class="destroy"
+            />
+          </div>
+          <input
+            class="edit ng-untouched ng-pristine ng-valid"
+            type="text"
+          />
+        </li>
+      </app-todo-list-item>
+      <app-todo-list-item>
+        <li
+          class="completed"
+        >
+          <div
+            class="view"
+          >
+            <input
+              class="toggle ng-untouched ng-pristine ng-valid"
+              type="checkbox"
+            />
+            <label>
+               Learn Jest 
+            </label>
+            <button
+              class="destroy"
+            />
+          </div>
+          <input
+            class="edit ng-untouched ng-pristine ng-valid"
+            type="text"
+          />
+        </li>
+      </app-todo-list-item>
+    </ul>
+  </section>
+</app-todo-list>
+`;

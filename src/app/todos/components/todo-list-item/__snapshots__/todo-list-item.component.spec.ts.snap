@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListItemComponent should render 1`] = `
+<app-todo-list-item
+  checkField={[Function FormControl]}
+  delete={[Function EventEmitter_]}
+  textField={[Function FormControl]}
+  todo={[Function Object]}
+  toggle={[Function EventEmitter_]}
+  update={[Function EventEmitter_]}
+>
+  <li
+    class="completed"
+  >
+    <div
+      class="view"
+    >
+      <input
+        class="toggle ng-untouched ng-pristine ng-valid"
+        type="checkbox"
+      />
+      <label>
+         Learn TDD 
+      </label>
+      <button
+        class="destroy"
+      />
+    </div>
+    <input
+      class="edit ng-untouched ng-pristine ng-valid"
+      type="text"
+    />
+  </li>
+</app-todo-list-item>
+`;

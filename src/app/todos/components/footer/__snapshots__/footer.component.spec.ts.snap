@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterComponent should render 1`] = `
+<app-footer
+  clearCompleted={[Function EventEmitter_]}
+  currentFilter={[Function String]}
+  filter={[Function EventEmitter_]}
+  hasCompletedTodos={[Function Boolean]}
+  undoneTodosCount={[Function Number]}
+>
+  <footer
+    class="footer"
+    id="footer"
+  >
+    <span
+      class="todo-count"
+      id="todo-count"
+    >
+      1 items left
+    </span>
+    <ul
+      class="filters"
+      id="filters"
+    >
+      <li>
+        <a
+          class="selected"
+          href="null"
+        >
+           All 
+        </a>
+      </li>
+      <li>
+        <a
+          href="null"
+        >
+           Active 
+        </a>
+      </li>
+      <li>
+        <a
+          href="null"
+        >
+           Completed 
+        </a>
+      </li>
+    </ul>
+    
+    <button
+      class="clear-completed"
+      id="clear-completed"
+    >
+       Clear completed 
+    </button>
+  </footer>
+</app-footer>
+`;

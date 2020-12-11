@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTodoComponent should render 1`] = `
+<app-new-todo
+  addTodo={[Function EventEmitter_]}
+  textField={[Function FormControl]}
+>
+  <input
+    autofocus=""
+    class="new-todo ng-untouched ng-pristine ng-invalid"
+    id="new-todo"
+    placeholder="What needs to be done?"
+    type="text"
+  />
+</app-new-todo>
+`;
