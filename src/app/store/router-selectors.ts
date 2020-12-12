@@ -4,12 +4,12 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromApp from './reducers';
 import { CustomRouterState } from './router-state-serializer';
 
-export const getRouter = createFeatureSelector<
+export const selectRouter = createFeatureSelector<
   fromApp.State,
   fromRouter.RouterReducerState<CustomRouterState>
 >('router');
 
-export const getRouteParamFilter = createSelector(
-  getRouter,
+export const selectRouteParamFilter = createSelector(
+  selectRouter,
   router => router.state.params.filter,
 );

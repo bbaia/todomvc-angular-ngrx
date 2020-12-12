@@ -19,12 +19,16 @@ export class TodoComponent implements OnInit {
   loading$: Observable<boolean>;
 
   constructor(private store: Store<fromApp.State>) {
-    this.hasTodos$ = this.store.select(fromTodos.getHasTodos);
-    this.hasCompletedTodos$ = this.store.select(fromTodos.hasCompletedTodos);
-    this.undoneTodosCount$ = this.store.select(fromTodos.getUndoneTodosCount);
-    this.currentFilter$ = this.store.select(fromTodos.getFilter);
-    this.filteredTodos$ = this.store.select(fromTodos.getFilteredTodos);
-    this.loading$ = this.store.select(fromTodos.getLoading);
+    this.hasTodos$ = this.store.select(fromTodos.selectHasTodos);
+    this.hasCompletedTodos$ = this.store.select(
+      fromTodos.selectHasCompletedTodos,
+    );
+    this.undoneTodosCount$ = this.store.select(
+      fromTodos.selectUndoneTodosCount,
+    );
+    this.currentFilter$ = this.store.select(fromTodos.selectFilter);
+    this.filteredTodos$ = this.store.select(fromTodos.selectFilteredTodos);
+    this.loading$ = this.store.select(fromTodos.selectLoading);
   }
 
   ngOnInit(): void {

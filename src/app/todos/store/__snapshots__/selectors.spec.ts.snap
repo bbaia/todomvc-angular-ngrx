@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`todos selectors Calculated selectors getFilteredTodos: Active todos 1`] = `
+exports[`todos selectors Calculated selectors selectFilteredTodos: Active todos 1`] = `
 Array [
   Object {
     "completed": false,
@@ -11,7 +11,7 @@ Array [
 ]
 `;
 
-exports[`todos selectors Calculated selectors getFilteredTodos: All todos 1`] = `
+exports[`todos selectors Calculated selectors selectFilteredTodos: All todos 1`] = `
 Array [
   Object {
     "completed": true,
@@ -34,7 +34,7 @@ Array [
 ]
 `;
 
-exports[`todos selectors Calculated selectors getFilteredTodos: Completed todos 1`] = `
+exports[`todos selectors Calculated selectors selectFilteredTodos: Completed todos 1`] = `
 Array [
   Object {
     "completed": true,

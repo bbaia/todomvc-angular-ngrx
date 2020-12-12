@@ -6,7 +6,7 @@ import { TodoFilter } from '../models';
 import * as todoEntity from './entities/todo';
 import * as fromTodos from './reducers';
 
-export const getTodoState = createFeatureSelector<
+export const selectTodoState = createFeatureSelector<
   fromApp.State,
   fromTodos.State
 >('todos');
@@ -20,20 +20,23 @@ const {
   selectTotal,
 } = todoEntity.adapter.getSelectors();
 
-export const getAllTodos = createSelector(getTodoState, state =>
+export const selectAllTodos = createSelector(selectTodoState, state =>
   selectAll(state.data),
 );
 
-export const getTotalTodos = createSelector(getTodoState, state =>
+export const selectTotalTodos = createSelector(selectTodoState, state =>
   selectTotal(state.data),
 );
 
-export const getLoading = createSelector(getTodoState, state => state.loading);
+export const selectLoading = createSelector(
+  selectTodoState,
+  state => state.loading,
+);
 
 // Calculated selectors
 
-export const getFilter = createSelector(
-  fromApp.getRouteParamFilter,
+export const selectFilter = createSelector(
+  fromApp.selectRouteParamFilter,
   (routeFilter): TodoFilter => {
     switch (routeFilter) {
       case 'active': {
@@ -49,9 +52,9 @@ export const getFilter = createSelector(
   },
 );
 
-export const getFilteredTodos = createSelector(
-  getAllTodos,
-  getFilter,
+export const selectFilteredTodos = createSelector(
+  selectAllTodos,
+  selectFilter,
   (todos, filter) => {
     switch (filter) {
       default:
@@ -65,14 +68,14 @@ export const getFilteredTodos = createSelector(
   },
 );
 
-export const getHasTodos = createSelector(getTotalTodos, totalTodos => {
+export const selectHasTodos = createSelector(selectTotalTodos, totalTodos => {
   return totalTodos > 0;
 });
 
-export const hasCompletedTodos = createSelector(getAllTodos, todos => {
+export const selectHasCompletedTodos = createSelector(selectAllTodos, todos => {
   return todos.filter(t => t.completed).length > 0;
 });
 
-export const getUndoneTodosCount = createSelector(getAllTodos, todos => {
+export const selectUndoneTodosCount = createSelector(selectAllTodos, todos => {
   return todos.filter(t => !t.completed).length;
 });

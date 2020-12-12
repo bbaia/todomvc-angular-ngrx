@@ -32,53 +32,55 @@ describe('todos selectors', () => {
     const state = fromTodos.reducer(fromTodos.initialState, loadSuccessAction);
 
     // Assert
-    expect(fromTodos.getAllTodos.projector(state)).toMatchSnapshot();
-    expect(fromTodos.getTotalTodos.projector(state)).toEqual(3);
-    expect(fromTodos.getLoading.projector(state)).toEqual(false);
+    expect(fromTodos.selectAllTodos.projector(state)).toMatchSnapshot();
+    expect(fromTodos.selectTotalTodos.projector(state)).toEqual(3);
+    expect(fromTodos.selectLoading.projector(state)).toEqual(false);
   });
 
   describe('Calculated selectors', () => {
-    it('getFilter', () => {
+    it('selectFilter', () => {
       // Assert
-      expect(fromTodos.getFilter.projector('all')).toEqual('SHOW_ALL');
-      expect(fromTodos.getFilter.projector('active')).toEqual('SHOW_ACTIVE');
-      expect(fromTodos.getFilter.projector('completed')).toEqual(
+      expect(fromTodos.selectFilter.projector('all')).toEqual('SHOW_ALL');
+      expect(fromTodos.selectFilter.projector('active')).toEqual('SHOW_ACTIVE');
+      expect(fromTodos.selectFilter.projector('completed')).toEqual(
         'SHOW_COMPLETED',
       );
     });
 
-    it('getFilteredTodos', () => {
+    it('selectFilteredTodos', () => {
       // Assert
       expect(
-        fromTodos.getFilteredTodos.projector(todos, 'SHOW_ALL'),
+        fromTodos.selectFilteredTodos.projector(todos, 'SHOW_ALL'),
       ).toMatchSnapshot('All todos');
       expect(
-        fromTodos.getFilteredTodos.projector(todos, 'SHOW_COMPLETED'),
+        fromTodos.selectFilteredTodos.projector(todos, 'SHOW_COMPLETED'),
       ).toMatchSnapshot('Completed todos');
       expect(
-        fromTodos.getFilteredTodos.projector(todos, 'SHOW_ACTIVE'),
+        fromTodos.selectFilteredTodos.projector(todos, 'SHOW_ACTIVE'),
       ).toMatchSnapshot('Active todos');
     });
 
-    it('getHasTodos', () => {
+    it('selectHasTodos', () => {
       // Assert
-      expect(fromTodos.getHasTodos.projector(5)).toEqual(true);
-      expect(fromTodos.getHasTodos.projector(0)).toEqual(false);
+      expect(fromTodos.selectHasTodos.projector(5)).toEqual(true);
+      expect(fromTodos.selectHasTodos.projector(0)).toEqual(false);
     });
 
-    it('hasCompletedTodos', () => {
+    it('selectHasCompletedTodos', () => {
       // Assert
-      expect(fromTodos.hasCompletedTodos.projector([])).toEqual(false);
-      expect(fromTodos.hasCompletedTodos.projector(todos)).toEqual(true);
-      expect(fromTodos.hasCompletedTodos.projector([todos[2]])).toEqual(false);
+      expect(fromTodos.selectHasCompletedTodos.projector([])).toEqual(false);
+      expect(fromTodos.selectHasCompletedTodos.projector(todos)).toEqual(true);
+      expect(fromTodos.selectHasCompletedTodos.projector([todos[2]])).toEqual(
+        false,
+      );
     });
 
-    it('getUndoneTodosCount', () => {
+    it('selectUndoneTodosCount', () => {
       // Assert
-      expect(fromTodos.getUndoneTodosCount.projector([])).toEqual(0);
-      expect(fromTodos.getUndoneTodosCount.projector(todos)).toEqual(1);
+      expect(fromTodos.selectUndoneTodosCount.projector([])).toEqual(0);
+      expect(fromTodos.selectUndoneTodosCount.projector(todos)).toEqual(1);
       expect(
-        fromTodos.getUndoneTodosCount.projector([todos[0], todos[1]]),
+        fromTodos.selectUndoneTodosCount.projector([todos[0], todos[1]]),
       ).toEqual(0);
     });
   });
