@@ -1,0 +1,24 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
+  cypress: cypress-io/cypress@1.26.0
+jobs:
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages
+      - run: npm run lint
+      - run: npm run build
+workflows:
+  ci:
+    jobs:
+      - build
+      - node/test:
+          requires:
+            - build
+      - cypress/run:
+          start: npm start
+          wait-on: 'http://localhost:4200'
+          requires:
+            - build

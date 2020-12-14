@@ -1,4 +1,4 @@
-# [TodoMVC](http://todomvc.com/) app using [Angular](https://angular.io/) & [NgRx](https://ngrx.io/)
+# [TodoMVC](http://todomvc.com/) app using [Angular](https://angular.io/) & [NgRx](https://ngrx.io/) [![Build Status](https://circleci.com/gh/bbaia/todomvc-angular-ngrx.svg?style=shield)](https://circleci.com/gh/bbaia/todomvc-angular-ngrx)
 
 Based on code from the GDG Toulouse talk "Redux with Angular & ngrx" in February 2018 (See [`bbaia/gdgtoulouse-ngrx`](https://github.com/bbaia/gdgtoulouse-ngrx)).
 
