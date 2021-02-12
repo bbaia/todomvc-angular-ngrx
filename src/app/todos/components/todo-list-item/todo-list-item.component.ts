@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 import { Todo } from './../../models';
@@ -7,8 +14,8 @@ import { Todo } from './../../models';
   selector: 'app-todo-list-item',
   templateUrl: './todo-list-item.component.html',
 })
-export class TodoListItemComponent implements OnInit {
-  @Input() todo: Todo;
+export class TodoListItemComponent implements OnChanges {
+  @Input() todo: Todo | null = null;
   @Output() toggle = new EventEmitter<number>();
   @Output() update = new EventEmitter<{ id: number; text: string }>();
   @Output() delete = new EventEmitter<number>();
@@ -17,22 +24,24 @@ export class TodoListItemComponent implements OnInit {
   checkField: FormControl;
 
   // 'local state is fine'
-  editing: boolean;
+  editing = false;
 
   constructor() {
     this.textField = new FormControl('', [Validators.required]);
     this.checkField = new FormControl(false);
   }
 
-  ngOnInit(): void {
-    this.textField.setValue(this.todo.text);
-    this.checkField.setValue(this.todo.completed, { emitEvent: false });
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.todo && this.todo) {
+      this.textField.setValue(this.todo.text);
+      this.checkField.setValue(this.todo.completed, { emitEvent: false });
+    }
   }
 
-  updateText(): void {
+  updateText(todoId: number): void {
     if (this.textField.valid && this.editing) {
       const text = this.textField.value as string;
-      this.update.emit({ id: this.todo.id, text: text.trim() });
+      this.update.emit({ id: todoId, text: text.trim() });
       this.editing = false;
     }
   }

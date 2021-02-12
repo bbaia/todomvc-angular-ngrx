@@ -11,25 +11,14 @@ import * as fromTodos from '../../store';
   templateUrl: './todo.component.html',
 })
 export class TodoComponent implements OnInit {
-  hasTodos$: Observable<boolean>;
-  hasCompletedTodos$: Observable<boolean>;
-  undoneTodosCount$: Observable<number>;
-  currentFilter$: Observable<TodoFilter>;
-  filteredTodos$: Observable<Todo[]>;
-  loading$: Observable<boolean>;
+  hasTodos$ = this.store.select(fromTodos.selectHasTodos);
+  hasCompletedTodos$ = this.store.select(fromTodos.selectHasCompletedTodos);
+  undoneTodosCount$ = this.store.select(fromTodos.selectUndoneTodosCount);
+  currentFilter$ = this.store.select(fromTodos.selectFilter);
+  filteredTodos$ = this.store.select(fromTodos.selectFilteredTodos);
+  loading$ = this.store.select(fromTodos.selectLoading);
 
-  constructor(private store: Store<fromApp.State>) {
-    this.hasTodos$ = this.store.select(fromTodos.selectHasTodos);
-    this.hasCompletedTodos$ = this.store.select(
-      fromTodos.selectHasCompletedTodos,
-    );
-    this.undoneTodosCount$ = this.store.select(
-      fromTodos.selectUndoneTodosCount,
-    );
-    this.currentFilter$ = this.store.select(fromTodos.selectFilter);
-    this.filteredTodos$ = this.store.select(fromTodos.selectFilteredTodos);
-    this.loading$ = this.store.select(fromTodos.selectLoading);
-  }
+  constructor(private store: Store<fromApp.State>) {}
 
   ngOnInit(): void {
     this.store.dispatch(fromTodos.loadAction());

@@ -11,7 +11,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "e2e:ci": "start-server-and-test start http://localhost:4200 cy:run",
-    "format:check": "prettier -c \"**/*{.ts,.js,.css}\""
+    "format:check": "prettier -c \"**/*{.ts,.js,.css}\"",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {

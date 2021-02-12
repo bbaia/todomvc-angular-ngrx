@@ -7,12 +7,12 @@ import { Todo } from '../../models';
   templateUrl: './todo-list.component.html',
 })
 export class TodoListComponent {
-  @Input() todos: Todo[];
+  @Input() todos: Todo[] | null = null;
   @Output() toggle = new EventEmitter<number>();
   @Output() update = new EventEmitter<{ id: number; text: string }>();
   @Output() delete = new EventEmitter<number>();
 
-  todosTrackByFn(index, item: Todo): number {
+  todosTrackByFn(index: number, item: Todo): number {
     return item.id;
   }
 }

@@ -42,7 +42,7 @@ export const reducer = createReducer(
       {
         id: action.id,
         changes: {
-          completed: !state.data.entities[action.id].completed,
+          completed: !state.data.entities[action.id]?.completed,
         },
       },
       state.data,
@@ -62,7 +62,7 @@ export const reducer = createReducer(
   on(fromTodos.clearCompletedAction, (state, action) => ({
     ...state,
     data: todoEntity.adapter.removeMany(
-      state.data.ids.filter(id => state.data.entities[id].completed),
+      state.data.ids.filter(id => state.data.entities[id]?.completed),
       state.data,
     ),
   })),

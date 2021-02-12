@@ -1,4 +1,5 @@
-<li [class.completed]="todo.completed"
+<li *ngIf="todo as todo"
+  [class.completed]="todo.completed"
   [class.editing]="editing">
   <div class="view">
     <input class="toggle"
@@ -17,6 +18,6 @@
     #textInput
     [hidden]="editing"
     [formControl]="textField"
-    (keyup.enter)="updateText()"
-    (blur)="updateText()" />
+    (keyup.enter)="updateText(todo.id)"
+    (blur)="updateText(todo.id)" />
 </li>

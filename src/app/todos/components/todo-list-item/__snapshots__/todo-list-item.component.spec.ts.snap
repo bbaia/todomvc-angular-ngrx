@@ -2,8 +2,10 @@
 
 exports[`TodoListItemComponent should render 1`] = `
 <app-todo-list-item
+  __ngContext__={[Function LRootView]}
   checkField={[Function FormControl]}
   delete={[Function EventEmitter_]}
+  editing="false"
   textField={[Function FormControl]}
   todo={[Function Object]}
   toggle={[Function EventEmitter_]}
@@ -27,7 +29,7 @@ exports[`TodoListItemComponent should render 1`] = `
       />
     </div>
     <input
-      class="edit ng-untouched ng-pristine ng-valid"
+      class="edit ng-untouched ng-pristine ng-invalid"
       type="text"
     />
   </li>
