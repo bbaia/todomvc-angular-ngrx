@@ -8,9 +8,9 @@ import { Todo } from '../../models';
 })
 export class TodoListComponent {
   @Input() todos: Todo[];
-  @Output() toggle = new EventEmitter<string>();
+  @Output() toggle = new EventEmitter<number>();
   @Output() update = new EventEmitter<{ id: number; text: string }>();
-  @Output() delete = new EventEmitter<string>();
+  @Output() delete = new EventEmitter<number>();
 
   todosTrackByFn(index, item: Todo): number {
     return item.id;

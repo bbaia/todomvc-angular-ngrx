@@ -40,7 +40,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     StoreModule.forRoot(fromApp.reducers, {
       metaReducers: fromApp.metaReducers,
     }),
