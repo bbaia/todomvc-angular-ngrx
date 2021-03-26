@@ -4,7 +4,7 @@
   <div class="view">
     <input class="toggle"
       type="checkbox"
-      [formControl]="checkField"
+      [checked]="todo.completed"
       (click)="toggle.emit(todo.id)" />
     <label (dblclick)="activeEditMode()">
       {{ todo.text }}
@@ -17,7 +17,7 @@
     type="text"
     #textInput
     [hidden]="editing"
-    [formControl]="textField"
-    (keyup.enter)="updateText(todo.id)"
-    (blur)="updateText(todo.id)" />
+    [value]="todo.text"
+    (keyup.enter)="updateText(todo.id, textInput.value)"
+    (blur)="updateText(todo.id, textInput.value)" />
 </li>

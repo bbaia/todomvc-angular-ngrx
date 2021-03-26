@@ -28,7 +28,7 @@ exports[`TodoListComponent should render 1`] = `
             class="view"
           >
             <input
-              class="toggle ng-untouched ng-pristine ng-valid"
+              class="toggle"
               type="checkbox"
             />
             <label>
@@ -39,7 +39,7 @@ exports[`TodoListComponent should render 1`] = `
             />
           </div>
           <input
-            class="edit ng-untouched ng-pristine ng-valid"
+            class="edit"
             type="text"
           />
         </li>
@@ -53,7 +53,7 @@ exports[`TodoListComponent should render 1`] = `
             class="view"
           >
             <input
-              class="toggle ng-untouched ng-pristine ng-valid"
+              class="toggle"
               type="checkbox"
             />
             <label>
@@ -64,7 +64,7 @@ exports[`TodoListComponent should render 1`] = `
             />
           </div>
           <input
-            class="edit ng-untouched ng-pristine ng-valid"
+            class="edit"
             type="text"
           />
         </li>
@@ -78,7 +78,7 @@ exports[`TodoListComponent should render 1`] = `
             class="view"
           >
             <input
-              class="toggle ng-untouched ng-pristine ng-valid"
+              class="toggle"
               type="checkbox"
             />
             <label>
@@ -89,7 +89,7 @@ exports[`TodoListComponent should render 1`] = `
             />
           </div>
           <input
-            class="edit ng-untouched ng-pristine ng-valid"
+            class="edit"
             type="text"
           />
         </li>

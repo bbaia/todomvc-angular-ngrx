@@ -4,11 +4,10 @@ exports[`NewTodoComponent should render 1`] = `
 <app-new-todo
   __ngContext__={[Function LRootView]}
   addTodo={[Function EventEmitter_]}
-  textField={[Function FormControl]}
 >
   <input
     autofocus=""
-    class="new-todo ng-untouched ng-pristine ng-invalid"
+    class="new-todo"
     id="new-todo"
     placeholder="What needs to be done?"
     type="text"

@@ -3,5 +3,5 @@
   type="text"
   autofocus
   placeholder="What needs to be done?"
-  [formControl]="textField"
-  (keyup.enter)="newTodo()" />
+  #textInput
+  (keyup.enter)="newTodo(textInput.value); textInput.value = ''" />
