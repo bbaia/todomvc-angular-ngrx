@@ -3,7 +3,7 @@
 exports[`TodoListItemComponent should render 1`] = `
 <app-todo-list-item
   delete={[Function EventEmitter_]}
-  editing="false"
+  editing$={[Function BehaviorSubject]}
   todo={[Function Object]}
   toggle={[Function EventEmitter_]}
   update={[Function EventEmitter_]}

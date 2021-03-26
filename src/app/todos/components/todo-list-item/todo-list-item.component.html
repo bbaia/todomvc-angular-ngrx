@@ -1,5 +1,5 @@
 @if (todo; as todo) {
-  <li [class.completed]="todo.completed" [class.editing]="editing">
+  <li [class.completed]="todo.completed" [class.editing]="editing$ | ngrxPush">
     <div class="view">
       <input
         class="toggle"
@@ -16,7 +16,7 @@
       class="edit"
       type="text"
       #textInput
-      [hidden]="editing"
+      [hidden]="editing$ | ngrxPush"
       [value]="todo.text"
       (keyup.enter)="updateText(todo.id, textInput.value)"
       (blur)="updateText(todo.id, textInput.value)"

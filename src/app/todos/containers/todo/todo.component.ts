@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PushPipe } from '@ngrx/component';
 import { map } from 'rxjs/operators';
 import {
   FooterComponent,
@@ -13,7 +14,13 @@ import { TodosStore } from './todos.store';
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [CommonModule, NewTodoComponent, FooterComponent, TodoListComponent],
+  imports: [
+    CommonModule,
+    NewTodoComponent,
+    FooterComponent,
+    TodoListComponent,
+    PushPipe,
+  ],
   templateUrl: './todo.component.html',
   providers: [TodosStore],
 })

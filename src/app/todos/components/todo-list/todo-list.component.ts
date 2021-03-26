@@ -9,7 +9,7 @@ import { TodoListItemComponent } from '../todo-list-item/todo-list-item.componen
   templateUrl: './todo-list.component.html',
 })
 export class TodoListComponent {
-  @Input() todos: Todo[] | null = null;
+  @Input() todos: Todo[] | undefined;
   @Output() toggle = new EventEmitter<number>();
   @Output() update = new EventEmitter<{ id: number; text: string }>();
   @Output() delete = new EventEmitter<number>();
