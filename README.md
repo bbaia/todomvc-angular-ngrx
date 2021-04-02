@@ -2,6 +2,12 @@
 
 Based on code from the GDG Toulouse talk "Redux with Angular & ngrx" in February 2018 (See [`bbaia/gdgtoulouse-ngrx`](https://github.com/bbaia/gdgtoulouse-ngrx)).
 
+On the `master` branch, you'll find the code based on global store and the full NgRx stack (`@ngrx/store` & co).
+
+On the [`component-store` branch](https://github.com/bbaia/todomvc-angular-ngrx/tree/component-store), you'll find a version based on component store (`@ngrx/component-store`), _the alternative to reactive push-based "Service with a Subject" approach_.
+
+On the [`zoneless` branch](https://github.com/bbaia/todomvc-angular-ngrx/tree/zoneless), you'll find a version working without `Zone.js` using `@ngrx/component`, _a set of primitive reactive helpers to enable fully reactive, Zoneless applications_.
+
 ## Development server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
