@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-
 import { Todo, TodoFilter } from '../models';
 
 export const addAction = createAction('[TODO] add', (text: string) => ({

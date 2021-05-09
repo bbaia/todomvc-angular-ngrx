@@ -1,6 +1,5 @@
-import { Todo } from '../models';
-
 import * as fromTodos from '.';
+import { Todo } from '../models';
 
 describe('todos selectors', () => {
   const todos: Todo[] = [

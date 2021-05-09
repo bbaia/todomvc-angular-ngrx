@@ -1,5 +1,4 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-
 import { Todo } from '../../models';
 
 export interface State extends EntityState<Todo> {

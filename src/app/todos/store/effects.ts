@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
-import { delay, map, switchMap, tap } from 'rxjs/operators';
-
+import { map, switchMap, tap } from 'rxjs/operators';
 import { TodosService } from '../services';
 import * as fromTodos from '../store';
 

@@ -5,11 +5,9 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
-
+import * as fromTodos from '.';
 import { Todo } from '../models';
 import { TodosService } from '../services';
-
-import * as fromTodos from '.';
 import { TodosEffects } from './effects';
 
 describe('TodosEffects', () => {

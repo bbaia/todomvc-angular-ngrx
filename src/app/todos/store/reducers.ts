@@ -1,5 +1,4 @@
 import { createReducer, on } from '@ngrx/store';
-
 import * as fromTodos from './actions';
 import * as todoEntity from './entities/todo';
 

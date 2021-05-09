@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages
+      - run: npm run format:check
       - run: npm run lint
       - run: npm run build
 workflows:

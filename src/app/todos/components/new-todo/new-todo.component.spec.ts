@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NewTodoComponent } from './new-todo.component';
 
 describe('NewTodoComponent', () => {

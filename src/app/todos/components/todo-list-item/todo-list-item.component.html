@@ -1,23 +1,27 @@
-<li *ngIf="todo as todo"
+<li
+  *ngIf="todo as todo"
   [class.completed]="todo.completed"
-  [class.editing]="editing">
+  [class.editing]="editing"
+>
   <div class="view">
-    <input class="toggle"
+    <input
+      class="toggle"
       type="checkbox"
       [checked]="todo.completed"
-      (click)="toggle.emit(todo.id)" />
+      (click)="toggle.emit(todo.id)"
+    />
     <label (dblclick)="activeEditMode()">
       {{ todo.text }}
     </label>
-    <button class="destroy"
-      (click)="delete.emit(todo.id)">
-    </button>
+    <button class="destroy" (click)="delete.emit(todo.id)"></button>
   </div>
-  <input class="edit"
+  <input
+    class="edit"
     type="text"
     #textInput
     [hidden]="editing"
     [value]="todo.text"
     (keyup.enter)="updateText(todo.id, textInput.value)"
-    (blur)="updateText(todo.id, textInput.value)" />
+    (blur)="updateText(todo.id, textInput.value)"
+  />
 </li>

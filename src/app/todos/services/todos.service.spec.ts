@@ -4,7 +4,6 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
 import { TodosService } from './todos.service';
 
 describe('Service: TodosService', () => {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TodoListItemComponent } from './todo-list-item.component';
 
 describe('TodoListItemComponent', () => {

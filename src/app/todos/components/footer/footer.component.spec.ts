@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
 import { TodoFilter } from '../../models';
-
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {

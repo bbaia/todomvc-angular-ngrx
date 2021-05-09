@@ -6,7 +6,6 @@
     "msjsdiag.debugger-for-chrome",
     "Angular.ng-template",
     "esbenp.prettier-vscode",
-    "ms-vscode.vscode-typescript-tslint-plugin",
-    "natewallace.angular2-inline"
+    "dbaeumer.vscode-eslint"
   ]
 }

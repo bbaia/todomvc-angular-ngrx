@@ -1,7 +1,5 @@
-import { Action, ActionReducer, MetaReducer } from '@ngrx/store';
-
+import { ActionReducer, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-
 import * as fromApp from './reducers';
 
 // console.log actions and state

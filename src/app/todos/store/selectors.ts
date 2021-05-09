@@ -1,8 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-
 import * as fromApp from '../../store';
 import { TodoFilter } from '../models';
-
 import * as todoEntity from './entities/todo';
 import * as fromTodos from './reducers';
 
