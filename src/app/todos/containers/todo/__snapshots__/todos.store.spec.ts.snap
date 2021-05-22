@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodosStore Effects should load todos 1`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": true,
+  "todos": [],
+}
+`;
+
+exports[`TodosStore Effects should load todos 2`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": false,
+  "todos": [
+    {
+      "completed": true,
+      "creationDate": 2020-01-01T00:00:00.000Z,
+      "id": 0.1,
+      "text": "Learn Angular",
+    },
+    {
+      "completed": true,
+      "creationDate": 2020-02-01T00:00:00.000Z,
+      "id": 0.2,
+      "text": "Learn NgRx",
+    },
+    {
+      "completed": false,
+      "creationDate": 2020-03-01T00:00:00.000Z,
+      "id": 0.3,
+      "text": "Learn Jest",
+    },
+  ],
+}
+`;
+
+exports[`TodosStore Selectors filteredTodos$ should return active todos: Active todos 1`] = `
+[
+  {
+    "completed": false,
+    "creationDate": 2020-03-01T00:00:00.000Z,
+    "id": 0.3,
+    "text": "Learn Jest",
+  },
+]
+`;
+
+exports[`TodosStore Selectors filteredTodos$ should return all todos: All todos 1`] = `
+[
+  {
+    "completed": true,
+    "creationDate": 2020-01-01T00:00:00.000Z,
+    "id": 0.1,
+    "text": "Learn Angular",
+  },
+  {
+    "completed": true,
+    "creationDate": 2020-02-01T00:00:00.000Z,
+    "id": 0.2,
+    "text": "Learn NgRx",
+  },
+  {
+    "completed": false,
+    "creationDate": 2020-03-01T00:00:00.000Z,
+    "id": 0.3,
+    "text": "Learn Jest",
+  },
+]
+`;
+
+exports[`TodosStore Selectors filteredTodos$ should return completed todos: Completed todos 1`] = `
+[
+  {
+    "completed": true,
+    "creationDate": 2020-01-01T00:00:00.000Z,
+    "id": 0.1,
+    "text": "Learn Angular",
+  },
+  {
+    "completed": true,
+    "creationDate": 2020-02-01T00:00:00.000Z,
+    "id": 0.2,
+    "text": "Learn NgRx",
+  },
+]
+`;
+
+exports[`TodosStore Updaters should add todos 1`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": false,
+  "todos": [
+    {
+      "completed": false,
+      "creationDate": 2020-01-01T00:00:00.000Z,
+      "id": 0.1,
+      "text": "Learn Angular",
+    },
+  ],
+}
+`;
+
+exports[`TodosStore Updaters should clear completed todos 1`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": false,
+  "todos": [
+    {
+      "completed": false,
+      "creationDate": 2020-01-01T00:00:00.000Z,
+      "id": 0.03,
+      "text": "Learn Jest",
+    },
+  ],
+}
+`;
+
+exports[`TodosStore Updaters should delete todos 1`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": false,
+  "todos": [],
+}
+`;
+
+exports[`TodosStore Updaters should mark todos as complete 1`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": false,
+  "todos": [
+    {
+      "completed": true,
+      "creationDate": 2020-01-01T00:00:00.000Z,
+      "id": 0.07,
+      "text": "Learn Jest",
+    },
+  ],
+}
+`;
+
+exports[`TodosStore Updaters should update todos 1`] = `
+{
+  "filter": "SHOW_ALL",
+  "loading": false,
+  "todos": [
+    {
+      "completed": false,
+      "creationDate": 2020-01-01T00:00:00.000Z,
+      "id": 0.07,
+      "text": "Learn Angular",
+    },
+  ],
+}
+`;

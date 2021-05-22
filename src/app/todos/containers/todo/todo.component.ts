@@ -1,55 +1,91 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import {
   FooterComponent,
   NewTodoComponent,
   TodoListComponent,
 } from '../../components';
 import { TodoFilter } from '../../models';
-import * as fromTodos from '../../store';
+import { TodosStore } from './todos.store';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
   imports: [CommonModule, NewTodoComponent, FooterComponent, TodoListComponent],
   templateUrl: './todo.component.html',
+  providers: [TodosStore],
 })
 export class TodoComponent implements OnInit {
-  hasTodos$ = this.store.select(fromTodos.selectHasTodos);
-  hasCompletedTodos$ = this.store.select(fromTodos.selectHasCompletedTodos);
-  undoneTodosCount$ = this.store.select(fromTodos.selectUndoneTodosCount);
-  currentFilter$ = this.store.select(fromTodos.selectFilter);
-  filteredTodos$ = this.store.select(fromTodos.selectFilteredTodos);
-  loading$ = this.store.select(fromTodos.selectLoading);
+  hasTodos$ = this.store.hasTodos$;
+  hasCompletedTodos$ = this.store.hasCompletedTodos$;
+  undoneTodosCount$ = this.store.undoneTodosCount$;
+  currentFilter$ = this.store.filter$;
+  filteredTodos$ = this.store.filteredTodos$;
+  loading$ = this.store.loading$;
 
-  constructor(private store: Store) {}
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly store: TodosStore,
+  ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(fromTodos.loadAction());
+    this.store.load();
+    this.store.filter(
+      this.route.params.pipe(
+        map(params => {
+          switch (params['filter']) {
+            case 'active': {
+              return 'SHOW_ACTIVE';
+            }
+            case 'completed': {
+              return 'SHOW_COMPLETED';
+            }
+            default: {
+              return 'SHOW_ALL';
+            }
+          }
+        }),
+      ),
+    );
   }
 
   onAddTodo(text: string): void {
-    this.store.dispatch(fromTodos.addAction(text));
+    this.store.add(text);
   }
 
   onToggle(id: number): void {
-    this.store.dispatch(fromTodos.toggleAction({ id }));
+    this.store.toggle(id);
   }
 
   onUpdate(event: { id: number; text: string }): void {
-    this.store.dispatch(fromTodos.updateAction(event));
+    this.store.update(event);
   }
 
   onDelete(id: number): void {
-    this.store.dispatch(fromTodos.deleteAction({ id }));
+    this.store.delete(id);
   }
 
   onFilter(filter: TodoFilter): void {
-    this.store.dispatch(fromTodos.setFilterAction({ filter }));
+    switch (filter) {
+      case 'SHOW_ACTIVE': {
+        this.router.navigate(['/', 'active']);
+        break;
+      }
+      case 'SHOW_COMPLETED': {
+        this.router.navigate(['/', 'completed']);
+        break;
+      }
+      default: {
+        this.router.navigate(['/', 'all']);
+        break;
+      }
+    }
   }
 
   onClearCompleted(): void {
-    this.store.dispatch(fromTodos.clearCompletedAction());
+    this.store.clearCompleted();
   }
 }
