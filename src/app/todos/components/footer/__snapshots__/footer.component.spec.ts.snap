@@ -2,7 +2,6 @@
 
 exports[`FooterComponent should render 1`] = `
 <app-footer
-  __ngContext__={[Function LRootView]}
   clearCompleted={[Function EventEmitter_]}
   currentFilter={[Function String]}
   filter={[Function EventEmitter_]}
@@ -26,33 +25,33 @@ exports[`FooterComponent should render 1`] = `
       <li>
         <a
           class="selected"
-          href=""
+          href="null"
         >
            All 
         </a>
       </li>
       <li>
         <a
-          href=""
+          href="null"
         >
            Active 
         </a>
       </li>
       <li>
         <a
-          href=""
+          href="null"
         >
            Completed 
         </a>
       </li>
     </ul>
+    
     <button
       class="clear-completed"
       id="clear-completed"
     >
        Clear completed 
     </button>
-    
   </footer>
 </app-footer>
 `;

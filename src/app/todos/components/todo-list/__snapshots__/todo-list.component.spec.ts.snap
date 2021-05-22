@@ -2,7 +2,6 @@
 
 exports[`TodoListComponent should render 1`] = `
 <app-todo-list
-  __ngContext__={[Function LRootView]}
   delete={[Function EventEmitter_]}
   todos={[Function Array]}
   toggle={[Function EventEmitter_]}
@@ -12,15 +11,17 @@ exports[`TodoListComponent should render 1`] = `
     class="main"
     id="main"
   >
+    
     <div
       class="toogle-view"
     />
-    
     <ul
       class="todo-list"
       id="todo-list"
     >
+      
       <app-todo-list-item>
+        
         <li
           class="completed"
         >
@@ -43,9 +44,9 @@ exports[`TodoListComponent should render 1`] = `
             type="text"
           />
         </li>
-        
       </app-todo-list-item>
       <app-todo-list-item>
+        
         <li
           class="completed"
         >
@@ -68,9 +69,9 @@ exports[`TodoListComponent should render 1`] = `
             type="text"
           />
         </li>
-        
       </app-todo-list-item>
       <app-todo-list-item>
+        
         <li
           class="completed"
         >
@@ -93,9 +94,7 @@ exports[`TodoListComponent should render 1`] = `
             type="text"
           />
         </li>
-        
       </app-todo-list-item>
-      
     </ul>
   </section>
 </app-todo-list>
