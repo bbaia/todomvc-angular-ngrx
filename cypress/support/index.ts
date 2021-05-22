@@ -1,4 +1,3 @@
-// tslint:disable-next-line: no-reference
-/// <reference path="../support/index.d.ts" />
+/// <reference path="./index.d.ts" />
 
 import './commands';
