@@ -23,7 +23,6 @@
     "@angular/platform-browser": "~12.0.1",
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
-    "@briebug/jest-schematic": "^3.1.0",
     "@ngrx/effects": "~12.0.0",
     "@ngrx/entity": "~12.0.0",
     "@ngrx/router-store": "~12.0.0",
@@ -36,7 +35,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/jest": "~11.0.0",
+    "@angular-builders/jest": "~12.0.0",
     "@angular-devkit/build-angular": "~12.0.1",
     "@angular-eslint/builder": "4.2.0",
     "@angular-eslint/eslint-plugin": "4.2.0",
@@ -47,7 +46,7 @@
     "@angular/compiler-cli": "~12.0.1",
     "@briebug/cypress-schematic": "^4.4.0",
     "@cypress/webpack-preprocessor": "5.5.0",
-    "@types/jest": "26.0.18",
+    "@types/jest": "26.0.23",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "cypress": "6.1.0",
