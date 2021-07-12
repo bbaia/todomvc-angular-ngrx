@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../../store';
 import { TodoFilter } from '../../models';
 import * as fromTodos from '../../store';
 
@@ -16,7 +15,7 @@ export class TodoComponent implements OnInit {
   filteredTodos$ = this.store.select(fromTodos.selectFilteredTodos);
   loading$ = this.store.select(fromTodos.selectLoading);
 
-  constructor(private store: Store<fromApp.State>) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.store.dispatch(fromTodos.loadAction());

@@ -7,18 +7,18 @@ import * as fromTodos from '../store';
 
 @Injectable()
 export class TodosEffects {
-  loadTodos$ = createEffect(() =>
-    this.actions$.pipe(
+  loadTodos$ = createEffect(() => {
+    return this.actions$.pipe(
       ofType(fromTodos.loadAction),
       switchMap(action => this.todosService.getTodos()),
       map(todos => fromTodos.loadSuccessAction({ todos })),
       // delay(1000), // Simulate network latency for loading animation
-    ),
-  );
+    );
+  });
 
   filter$ = createEffect(
-    () =>
-      this.actions$.pipe(
+    () => {
+      return this.actions$.pipe(
         ofType(fromTodos.setFilterAction),
         tap(action => {
           switch (action.filter) {
@@ -36,7 +36,8 @@ export class TodosEffects {
             }
           }
         }),
-      ),
+      );
+    },
     { dispatch: false },
   );
 

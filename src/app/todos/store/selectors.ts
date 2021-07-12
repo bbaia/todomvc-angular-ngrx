@@ -4,10 +4,7 @@ import { TodoFilter } from '../models';
 import * as todoEntity from './entities/todo';
 import * as fromTodos from './reducers';
 
-export const selectTodoState = createFeatureSelector<
-  fromApp.State,
-  fromTodos.State
->('todos');
+export const selectTodoState = createFeatureSelector<fromTodos.State>('todos');
 
 // Raw selectors
 

@@ -16,7 +16,8 @@
       },
       "extends": [
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:ngrx/recommended"
       ],
       "rules": {
         "@angular-eslint/component-selector": [
@@ -35,7 +36,8 @@
             "type": "attribute"
           }
         ]
-      }
+      },
+      "plugins": ["ngrx"]
     },
     {
       "files": ["*.html"],
