@@ -8,5 +8,5 @@ export const selectRouter = createFeatureSelector<
 
 export const selectRouteParamFilter = createSelector(
   selectRouter,
-  router => router.state.params.filter,
+  router => router.state.params['filter'],
 );
