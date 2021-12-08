@@ -36,7 +36,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, { useHash: true }),
     StoreModule.forRoot(fromApp.reducers, {
       metaReducers: fromApp.metaReducers,
     }),
