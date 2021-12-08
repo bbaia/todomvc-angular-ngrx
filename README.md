@@ -8,6 +8,8 @@ On the [`component-store` branch](https://github.com/bbaia/todomvc-angular-ngrx/
 
 On the [`zoneless` branch](https://github.com/bbaia/todomvc-angular-ngrx/tree/zoneless), you'll find a version working without `Zone.js` using `@ngrx/component`, _a set of primitive reactive helpers to enable fully reactive, Zoneless applications_.
 
+The sample is available at https://bbaia.github.io/todomvc-angular-ngrx/ using the `zoneless` version (~235kB)
+
 ## Development server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).

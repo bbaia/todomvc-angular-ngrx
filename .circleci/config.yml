@@ -20,7 +20,10 @@ jobs:
 workflows:
   ci:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
       - node/test:
           version: 'lts'
           requires:
