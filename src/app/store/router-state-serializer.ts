@@ -18,7 +18,8 @@ export interface CustomRouterState {
 
 @Injectable()
 export class CustomRouterStateSerializer
-  implements RouterStateSerializer<CustomRouterState> {
+  implements RouterStateSerializer<CustomRouterState>
+{
   serialize(routerState: RouterStateSnapshot): CustomRouterState {
     let route = routerState.root;
     while (route.firstChild) {

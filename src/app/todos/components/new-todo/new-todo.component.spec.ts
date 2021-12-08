@@ -30,9 +30,8 @@ describe('NewTodoComponent', () => {
       expect(text).toBe('Test component!');
       done();
     });
-    const input: HTMLInputElement = fixture.debugElement.nativeElement.querySelector(
-      '.new-todo',
-    );
+    const input: HTMLInputElement =
+      fixture.debugElement.nativeElement.querySelector('.new-todo');
     input.value = '  Test component!  ';
     input.dispatchEvent(new Event('input'));
     input.dispatchEvent(new KeyboardEvent('keyup', { key: 'Enter' }));

@@ -68,9 +68,8 @@ describe('TodoListItemComponent', () => {
           view: window,
         }),
       );
-    const input: HTMLInputElement = fixture.debugElement.nativeElement.querySelector(
-      '.edit',
-    );
+    const input: HTMLInputElement =
+      fixture.debugElement.nativeElement.querySelector('.edit');
     input.value = 'Learn Jest ';
     input.dispatchEvent(new Event('input'));
     input.dispatchEvent(new Event('blur'));

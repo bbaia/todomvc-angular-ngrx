@@ -8,12 +8,8 @@ export const selectTodoState = createFeatureSelector<fromTodos.State>('todos');
 
 // Raw selectors
 
-const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal,
-} = todoEntity.adapter.getSelectors();
+const { selectIds, selectEntities, selectAll, selectTotal } =
+  todoEntity.adapter.getSelectors();
 
 export const selectAllTodos = createSelector(selectTodoState, state =>
   selectAll(state.data),
