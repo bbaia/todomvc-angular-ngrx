@@ -1,3 +1,13 @@
+declare namespace Cypress {
+  interface Chainable {
+    /**
+     * Custom command to add a new todo.
+     * @example cy.addTodo('Learn Cypress')
+     */
+    addTodo(text: string): Chainable<JQuery<HTMLLIElement>>;
+  }
+}
+
 function addTodo(text: string): Cypress.Chainable<JQuery<HTMLLIElement>> {
   const cmd = Cypress.log({
     name: 'add todo',
