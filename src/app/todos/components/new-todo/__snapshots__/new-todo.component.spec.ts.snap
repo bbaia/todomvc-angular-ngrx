@@ -2,7 +2,7 @@
 
 exports[`NewTodoComponent should render 1`] = `
 <app-new-todo
-  __ngContext__={[Function LRootView]}
+  __ngContext__={[Function Number]}
   addTodo={[Function EventEmitter_]}
 >
   <input

@@ -2,7 +2,7 @@
 
 exports[`TodoListItemComponent should render 1`] = `
 <app-todo-list-item
-  __ngContext__={[Function LRootView]}
+  __ngContext__={[Function Number]}
   delete={[Function EventEmitter_]}
   editing="false"
   todo={[Function Object]}

@@ -2,7 +2,7 @@ import * as fromTodos from '.';
 
 describe('todos reducers', () => {
   beforeEach(() => {
-    jest.useFakeTimers('modern');
+    jest.useFakeTimers();
     jest.setSystemTime(new Date('2020-01-01'));
   });
 

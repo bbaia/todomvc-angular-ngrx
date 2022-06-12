@@ -2,7 +2,7 @@
 
 exports[`FooterComponent should render 1`] = `
 <app-footer
-  __ngContext__={[Function LRootView]}
+  __ngContext__={[Function Number]}
   clearCompleted={[Function EventEmitter_]}
   currentFilter={[Function String]}
   filter={[Function EventEmitter_]}
