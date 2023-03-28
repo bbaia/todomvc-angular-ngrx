@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`todos selectors Calculated selectors selectFilteredTodos: Active todos 1`] = `
-Array [
-  Object {
+[
+  {
     "completed": false,
     "creationDate": 2020-03-01T00:00:00.000Z,
     "id": 0.3,
@@ -12,20 +12,20 @@ Array [
 `;
 
 exports[`todos selectors Calculated selectors selectFilteredTodos: All todos 1`] = `
-Array [
-  Object {
+[
+  {
     "completed": true,
     "creationDate": 2020-01-01T00:00:00.000Z,
     "id": 0.1,
     "text": "Learn Angular",
   },
-  Object {
+  {
     "completed": true,
     "creationDate": 2020-02-01T00:00:00.000Z,
     "id": 0.2,
     "text": "Learn NgRx",
   },
-  Object {
+  {
     "completed": false,
     "creationDate": 2020-03-01T00:00:00.000Z,
     "id": 0.3,
@@ -35,14 +35,14 @@ Array [
 `;
 
 exports[`todos selectors Calculated selectors selectFilteredTodos: Completed todos 1`] = `
-Array [
-  Object {
+[
+  {
     "completed": true,
     "creationDate": 2020-01-01T00:00:00.000Z,
     "id": 0.1,
     "text": "Learn Angular",
   },
-  Object {
+  {
     "completed": true,
     "creationDate": 2020-02-01T00:00:00.000Z,
     "id": 0.2,
@@ -52,20 +52,20 @@ Array [
 `;
 
 exports[`todos selectors Raw selectors 1`] = `
-Array [
-  Object {
+[
+  {
     "completed": true,
     "creationDate": 2020-01-01T00:00:00.000Z,
     "id": 0.1,
     "text": "Learn Angular",
   },
-  Object {
+  {
     "completed": true,
     "creationDate": 2020-02-01T00:00:00.000Z,
     "id": 0.2,
     "text": "Learn NgRx",
   },
-  Object {
+  {
     "completed": false,
     "creationDate": 2020-03-01T00:00:00.000Z,
     "id": 0.3,

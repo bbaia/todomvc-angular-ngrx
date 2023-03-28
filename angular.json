@@ -77,16 +77,6 @@
             "browserTarget": "todomvc-angular-ngrx:build"
           }
         },
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
-            "scripts": [],
-            "runInBand": true
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
