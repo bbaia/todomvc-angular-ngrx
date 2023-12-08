@@ -48,6 +48,7 @@ const routes: Routes = [
       ? StoreDevtoolsModule.instrument({
           name: 'TodoMVC app using Angular & NgRx',
           maxAge: 50,
+          connectInZone: true,
         })
       : [],
   ],

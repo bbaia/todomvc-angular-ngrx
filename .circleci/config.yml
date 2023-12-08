@@ -1,12 +1,12 @@
 version: 2.1
 orbs:
-  node: circleci/node@4.4.0
-  cypress: cypress-io/cypress@2.1.0
+  node: circleci/node@5
+  cypress: cypress-io/cypress@3
 jobs:
   build:
     executor:
       name: node/default
-      tag: 'lts'
+      tag: '18.19'
     steps:
       - checkout
       - node/install-packages
@@ -21,12 +21,11 @@ workflows:
             branches:
               ignore: gh-pages
       - node/test:
-          version: 'lts'
+          version: '18.19'
           requires:
             - build
       - cypress/run:
-          executor: cypress/base-16-14-2-slim
-          start: npm start
-          wait-on: 'http://localhost:4200'
+          cypress-command: npx wait-on@latest http://localhost:4200 && npx cypress run
+          start-command: npm start
           requires:
             - build
