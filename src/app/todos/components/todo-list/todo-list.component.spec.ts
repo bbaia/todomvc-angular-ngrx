@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TodoListItemComponent } from '../todo-list-item/todo-list-item.component';
 import { TodoListComponent } from './todo-list.component';
 
 describe('TodoListComponent', () => {
@@ -7,9 +6,6 @@ describe('TodoListComponent', () => {
   let fixture: ComponentFixture<TodoListComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TodoListComponent, TodoListItemComponent],
-    });
     fixture = TestBed.createComponent(TodoListComponent);
     component = fixture.componentInstance;
   });

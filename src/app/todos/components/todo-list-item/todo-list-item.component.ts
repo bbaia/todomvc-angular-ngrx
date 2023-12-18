@@ -1,8 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from './../../models';
 
 @Component({
   selector: 'app-todo-list-item',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './todo-list-item.component.html',
 })
 export class TodoListItemComponent {

@@ -1,10 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import {
+  FooterComponent,
+  NewTodoComponent,
+  TodoListComponent,
+} from '../../components';
 import { TodoFilter } from '../../models';
 import * as fromTodos from '../../store';
 
 @Component({
   selector: 'app-todo',
+  standalone: true,
+  imports: [CommonModule, NewTodoComponent, FooterComponent, TodoListComponent],
   templateUrl: './todo.component.html',
 })
 export class TodoComponent implements OnInit {

@@ -6,9 +6,6 @@ describe('TodoListItemComponent', () => {
   let fixture: ComponentFixture<TodoListItemComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TodoListItemComponent],
-    });
     fixture = TestBed.createComponent(TodoListItemComponent);
     component = fixture.componentInstance;
   });

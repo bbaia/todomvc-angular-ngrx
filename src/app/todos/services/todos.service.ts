@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Todo } from '../models';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class TodosService {
   constructor(private http: HttpClient) {}
 

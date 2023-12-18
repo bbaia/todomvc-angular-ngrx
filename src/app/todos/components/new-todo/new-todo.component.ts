@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-todo',
+  standalone: true,
   templateUrl: './new-todo.component.html',
 })
 export class NewTodoComponent {

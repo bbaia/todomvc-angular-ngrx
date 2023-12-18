@@ -14,7 +14,6 @@ describe('Service: TodosService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [TodosService],
     });
 
     httpClient = TestBed.inject(HttpClient);

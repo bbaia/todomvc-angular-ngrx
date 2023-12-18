@@ -1,5 +1,5 @@
+import { isDevMode } from '@angular/core';
 import { ActionReducer, MetaReducer } from '@ngrx/store';
-import { environment } from '../../environments/environment';
 import * as fromApp from './reducers';
 
 // console.log actions and state
@@ -18,6 +18,6 @@ export function logger(
   };
 }
 
-export const metaReducers: MetaReducer<fromApp.State>[] = environment.production
+export const metaReducers: MetaReducer<fromApp.State>[] = !isDevMode()
   ? []
   : [logger];

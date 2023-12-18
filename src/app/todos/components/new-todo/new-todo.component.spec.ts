@@ -6,9 +6,6 @@ describe('NewTodoComponent', () => {
   let fixture: ComponentFixture<NewTodoComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [NewTodoComponent],
-    });
     fixture = TestBed.createComponent(NewTodoComponent);
     component = fixture.componentInstance;
   });
