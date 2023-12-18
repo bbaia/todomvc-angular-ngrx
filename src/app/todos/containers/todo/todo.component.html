@@ -1,26 +1,23 @@
 <header class="header">
   <h1>todos</h1>
-  <app-new-todo
-    *ngIf="(loading$ | async) === false; else loading"
-    (addTodo)="onAddTodo($event)"
-  ></app-new-todo>
+  @if ((loading$ | async) === false) {
+    <app-new-todo (addTodo)="onAddTodo($event)"></app-new-todo>
+  } @else {
+    <div>loading...</div>
+  }
 </header>
-<app-todo-list
-  *ngIf="hasTodos$ | async"
-  [todos]="filteredTodos$ | async"
-  (toggle)="onToggle($event)"
-  (update)="onUpdate($event)"
-  (delete)="onDelete($event)"
-></app-todo-list>
-<app-footer
-  *ngIf="hasTodos$ | async"
-  [hasCompletedTodos]="hasCompletedTodos$ | async"
-  [undoneTodosCount]="undoneTodosCount$ | async"
-  [currentFilter]="currentFilter$ | async"
-  (filter)="onFilter($event)"
-  (clearCompleted)="onClearCompleted()"
-></app-footer>
-
-<ng-template #loading>
-  <div>loading...</div>
-</ng-template>
+@if (hasTodos$ | async) {
+  <app-todo-list
+    [todos]="filteredTodos$ | async"
+    (toggle)="onToggle($event)"
+    (update)="onUpdate($event)"
+    (delete)="onDelete($event)"
+  ></app-todo-list>
+  <app-footer
+    [hasCompletedTodos]="hasCompletedTodos$ | async"
+    [undoneTodosCount]="undoneTodosCount$ | async"
+    [currentFilter]="currentFilter$ | async"
+    (filter)="onFilter($event)"
+    (clearCompleted)="onClearCompleted()"
+  ></app-footer>
+}

@@ -31,12 +31,13 @@
       </a>
     </li>
   </ul>
-  <button
-    id="clear-completed"
-    *ngIf="hasCompletedTodos"
-    class="clear-completed"
-    (click)="clearCompleted.emit()"
-  >
-    Clear completed
-  </button>
+  @if (hasCompletedTodos) {
+    <button
+      id="clear-completed"
+      class="clear-completed"
+      (click)="clearCompleted.emit()"
+    >
+      Clear completed
+    </button>
+  }
 </footer>
